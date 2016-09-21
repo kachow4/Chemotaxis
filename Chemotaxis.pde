@@ -3,8 +3,8 @@ Bacteria [] colony;
  //declare bacteria variables here   
  void setup()   
  {     
-   size(400, 400);//initialize bacteria variables here   
-   colony = new Bacteria [100];
+   size(600, 600);//initialize bacteria variables here   
+   colony = new Bacteria [10];
      for (int i = 0; i < colony.length; i++){
      colony[i] = new Bacteria();
      frameRate(10);
@@ -24,32 +24,43 @@ Bacteria [] colony;
    int myX, myY, bColor;
   
   Bacteria(){
-    myX = 200;
-    myY = 200;
+    myX = 300;
+    myY = 300;
     //bColor = (int)(Math.random()*256);//lots of java!
    }
 
    void move(){
-     //myX = myX + (int)((Math.random()*10)-5);
-     //myY = myY + (int)((Math.random()*10)-5);
-     int direction = (int)(Math.random()*4);
-   		if (direction == 0){
-   			myX = myX + 10;
-   		}
-   		else if (direction == 1){
-   			myX = myX - 10;
-   		}
-   		else if (direction == 2){
-   			myY = myY + 10;
-   		}
-   		else{
-   			myY = myY - 10;
-   		}
+     myX = myX + (int)((Math.random()*10)-5);
+     myY = myY + (int)((Math.random()*10)-5);
+     /*int direction = (int)(Math.random()*4);
+       if (direction == 0){
+         myX = myX + 10;
+       }
+       else if (direction == 1){
+         myX = myX - 10;
+       }
+       else if (direction == 2){
+         myY = myY + 10;
+       }
+       else{
+         myY = myY - 10;
+       }*/
    }
 
+   /*void eat()
+   {
+    if (get(myX, myY) != color(0))
+    {
+       itsAlive = false; 
+    }
+   }
+*/
    void show(){
      noStroke();
      fill((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256), 100);
-     ellipse(myX, myY, 10, 10);
-   }
- }    
+     //fill(255);
+     ellipse(myX, myY, 20, 20);
+     fill(0);
+     ellipse(mouseX, mouseY, 50, 50);
+  }
+ }
